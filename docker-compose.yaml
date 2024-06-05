@@ -1,14 +1,42 @@
 services:
   postgres:
-    image: postgres:16-bookworm
+    build:
+      context: .
     volumes:
       - postgres-data:/var/lib/postgresql/data
     ports:
       - ${POSTGRES_HOST:-127.0.0.1}:${POSTGRES_PORT:-5432}:5432
     environment:
-      POSTGRES_USER: user
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: db
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d postgres"]
+      interval: 15s
+      timeout: 3s
+      retries: 3
+
+  postgres-initializer:
+    depends_on:
+      postgres:
+        condition: service_healthy
+    build:
+      context: .
+      dockerfile_inline: |
+        FROM postgres:16-bullseye
+
+        RUN apt-get update && apt-get install -y unzip wget
+        RUN wget https://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip \
+            && unzip dvdrental.zip \
+            && rm dvdrental.zip
+
+    environment:
+      PGPASSWORD: password
+    command:
+      - bash
+      - -c 
+      - |
+        createdb -h postgres -U postgres dvdrental
+        pg_restore -h postgres -U postgres -d dvdrental dvdrental.tar
+    restart: no
 
   minio:
     image: bitnami/minio:2024-debian-12
