@@ -19,7 +19,7 @@ help: Makefile  ## Show help
 # =============================================================================
 install:  ## Install deps
 	uv python install
-	uv sync --frozen --all-extras
+	uv sync --frozen --all-packages --all-extras
 	pre-commit install --install-hooks
 .PHONY: install
 
