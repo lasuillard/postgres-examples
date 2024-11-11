@@ -1,0 +1,25 @@
+[project]
+name = "postgres-examples"
+version = "0.1.0"
+description = "Examples around using Postgres."
+authors = [{ name = "Yuchan Lee", email = "lasuillard@gmail.com" }]
+readme = "README.md"
+requires-python = ">=3.12, <4.0"
+
+[project.optional-dependencies]
+dev = [
+    "mypy>=1.13.0",
+    "ruff>=0.7.3",
+]
+
+[tool.uv]
+package = false
+
+[tool.uv.sources]
+aws-s3-extension = { workspace = true }
+
+[tool.uv.workspace]
+members = ["aws-s3-extension"]
+
+[tool.ruff.lint]
+select = ["ALL"]

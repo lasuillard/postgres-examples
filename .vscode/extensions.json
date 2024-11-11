@@ -4,6 +4,9 @@
         "gruntfuggly.todo-tree",
         "redhat.vscode-yaml",
         "streetsidesoftware.code-spell-checker",
-        "EditorConfig.EditorConfig"
+        "EditorConfig.EditorConfig",
+        "tamasfe.even-better-toml",
+        "charliermarsh.ruff",
+        "ms-python.mypy-type-checker"
     ]
 }
