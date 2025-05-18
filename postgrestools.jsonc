@@ -1,3 +1,5 @@
+// Postgres LSP configuration
+// https://github.com/supabase-community/postgres-language-server
 {
     "$schema": "https://raw.githubusercontent.com/supabase-community/postgres-language-server/refs/heads/main/docs/schemas/latest/schema.json",
     "vcs": {
@@ -14,7 +16,11 @@
             "recommended": true
         }
     },
+    // This configuration is used by LSP for advanced features like code completion.
+    // Linting should work without this configuration.
     "db": {
+        // We configured all the database connection settings in this project like below.
+        // If you want to connect to a different database, you can just change the settings here
         "host": "localhost",
         "port": 5432,
         "username": "postgres",
