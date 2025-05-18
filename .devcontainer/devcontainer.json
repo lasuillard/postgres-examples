@@ -17,6 +17,7 @@
                 "tamasfe.even-better-toml",
                 "charliermarsh.ruff",
                 "ms-python.mypy-type-checker",
+                "Supabase.postgrestools",
                 "mkhl.shfmt"
             ]
         }

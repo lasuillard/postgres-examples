@@ -1,0 +1,29 @@
+{
+    "$schema": "https://raw.githubusercontent.com/supabase-community/postgres-language-server/refs/heads/main/docs/schemas/latest/schema.json",
+    "vcs": {
+        "enabled": true,
+        "clientKind": "git",
+        "useIgnoreFile": true
+    },
+    "files": {
+        "ignore": []
+    },
+    "linter": {
+        "enabled": true,
+        "rules": {
+            "recommended": true
+        }
+    },
+    "db": {
+        "host": "localhost",
+        "port": 5432,
+        "username": "postgres",
+        "password": "password",
+        "database": "postgres",
+        "connTimeoutSecs": 10,
+        "allowStatementExecutionsAgainst": [
+            "127.0.0.1/*",
+            "localhost/*"
+        ]
+    }
+}
