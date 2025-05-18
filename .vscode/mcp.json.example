@@ -1,0 +1,16 @@
+// Copy this file to .vscode/mcp.json and modify it as needed.
+{
+    "servers": {
+        // https://github.com/crystaldba/postgres-mcp
+        "postgres": {
+            "command": "uvx",
+            "args": [
+                "postgres-mcp",
+                "--access-mode=restricted"  // or "unrestricted"
+            ],
+            "env": {
+                "DATABASE_URI": "postgresql://postgres:password@localhost:5432/postgres"
+            }
+        }
+    }
+}
