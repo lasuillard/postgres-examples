@@ -7,6 +7,7 @@
         "EditorConfig.EditorConfig",
         "tamasfe.even-better-toml",
         "charliermarsh.ruff",
-        "ms-python.mypy-type-checker"
+        "ms-python.mypy-type-checker",
+        "mkhl.shfmt"
     ]
 }
