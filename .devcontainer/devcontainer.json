@@ -1,12 +1,11 @@
 {
     "name": "lasuillard/postgres-examples",
-    "image": "mcr.microsoft.com/devcontainers/base:1-bookworm",
+    "image": "mcr.microsoft.com/devcontainers/python:3-bookworm",
     "features": {
-        "ghcr.io/devcontainers-contrib/features/pre-commit:2": {},
         "ghcr.io/devcontainers/features/docker-in-docker:2": {}
     },
     "onCreateCommand": "./.devcontainer/onCreateCommand.sh",
-    "postAttachCommand": "pre-commit install",
+    "postAttachCommand": "make install",
     "customizations": {
         "vscode": {
             "extensions": [
@@ -17,7 +16,9 @@
                 "EditorConfig.EditorConfig",
                 "tamasfe.even-better-toml",
                 "charliermarsh.ruff",
-                "ms-python.mypy-type-checker"
+                "ms-python.mypy-type-checker",
+                "Supabase.postgrestools",
+                "mkhl.shfmt"
             ]
         }
     }
